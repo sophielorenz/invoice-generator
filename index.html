@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>City of Lincoln Invoice Creation</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="css/main.css" rel="stylesheet">
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <img src="img/DPWU-logo.svg" class="img-fluid" alt="Lincoln Public Works and Utilities Logo">
+      </div>
+      <div class="col-sm-6">
+        <h2>City of Lincoln Invoice Creation</h2>
+        <div class="row">
+          <div class="col-8 col-sm-6">
+            <p><b>Account #</b></p>
+            <p id="accountNumber">000000001234</p>
+          </div>
+          <div class="col-8 col-sm-6">
+            <p><b>Invoice #</b></p>
+            <p id="invoiceNumber">001398292</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8 col-sm-6">
+            <p><b>Recipient</b></p>
+            <p id="recipient">Info here</p>
+          </div>
+          <div class="col-8 col-sm-6">
+            <p><b>Date of Invoice</b></p>
+            <input id="invoiceDate" type="date" name="invoice date" readonly>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Description</th>
+          <th scope="col">Qty</th>
+          <th scope="col">Unit Price</th>
+          <th scope="col">City Tax?</th>
+          <th scope="col">State Tax?</th>
+          <th scope="col">Subtotal</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+      </tbody>
+    </table>
+    <button class="btn btn-primary" onclick="addNewRow()">Add Row</button>
+  </div>
+
+  <div class="container">
+    <h3 id="grandTotal">Grand Total: $0.00</h3>
+    <div class="row text-right">
+      <a href="#" class="btn btn-secondary">Cancel</a>
+      <a href="#" class="btn btn-primary">Submit</a>
+    </div>
+  </div>
+
+  <!-- Hidden Header Input  -->
+  <table style="display: none;">
+    <tbody id="defaultRow">
+        <tr id="" class="invoiceItem">
+            <td scope="col"><input class="desc" type="text"></td>
+            <td scope="col"><input class="qty" type="number" min="0" value="0" step="1" required></td>
+            <td scope="col"><input class="unitPrice" type="number" min="0.00" value="0.00" step="0.01" required></td>
+            <td scope="col"><input class="cityTax" type="checkbox"></td>
+            <td scope="col"><input class="stateTax" type="checkbox"></td>
+            <td scope="col" class="subtotal"></td>
+            <td scope="col" class="total"></td>
+            <td scope="col" class="deleteCell"><button class="btn btn-danger deleteButton"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
+        </tr>
+    </tbody>
+  </table>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/invoice.js"></script>
+</body>
+
+</html>
